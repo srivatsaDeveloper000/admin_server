@@ -1,0 +1,36 @@
+{
+  "name": "adminserver",
+  "version": "1.0.0",
+  "description": "Admin srevice for the app",
+  "license": "ISC",
+  "author": "Sri vatsa c s",
+  "type": "commonjs",
+  "main": "app.js",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "dev": "tsx watch app.ts",
+    "build": "tsc",
+    "start": "node dist/app.js"
+  },
+  "dependencies": {
+    "@types/cors": "^2.8.19",
+    "@types/multer": "^2.3.0",
+    "chalk": "^6.0.1",
+    "cors": "^2.8.6",
+    "dotenv": "^18.0.10",
+    "express": "^5.3.0",
+    "mongoose": "^9.12.1",
+    "morgan": "^1.12.1",
+    "newman": "^6.2.3",
+    "nodemon": "^3.1.14",
+    "ts-node": "^10.9.2",
+    "tsx": "^4.23.15",
+    "vitest": "^5.1.0"
+  },
+  "devDependencies": {
+    "@types/express": "^5.0.6",
+    "@types/node": "^26.6.6",
+    "typescript": "^7.0.2"
+  }
+}
