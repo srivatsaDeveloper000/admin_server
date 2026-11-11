@@ -15,5 +15,5 @@ app.listen(PORT, (error) => {
         console.log(chalk.red(error.message));
         return;
     }
-    console.log(chalk.green(`Servre successfully started at port ${PORT}`));
+    console.log(chalk.green(`Server successfully started at port ${PORT}`));
 });
