@@ -13,6 +13,10 @@ const schema = new mongoose.Schema({
     created_by: {
         type: String,
         required: true,
+    },
+    user_role: {
+        type: String,
+        required: true,
     }
 }, { timestamps: true });
 

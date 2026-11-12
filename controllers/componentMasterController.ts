@@ -1,4 +1,3 @@
-import express from "express";
 import type { Request, Response } from "express";
 import { component_master_data_service, component_master_service } from "../service/component master";
 
