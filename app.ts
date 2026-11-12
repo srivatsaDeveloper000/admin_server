@@ -19,10 +19,11 @@ app.use(express.json());
 app.use(requestLogger);
 app.use(base_url, Routes);
 
-app.listen(PORT, (error) => {
-    if (error) {
+app.listen(PORT, () => {
+    try {
+        console.log(chalk.green(`Server successfully started at port ${PORT}`));
+    } catch (error : any) {
         console.log(chalk.red(error.message));
-        return;
+        process.exit(1)
     }
-    console.log(chalk.green(`Server successfully started at port ${PORT}`));
 });
