@@ -9,11 +9,11 @@ export const component_master_service = async (payload: component_master_types) 
         if (db_Connection) {
             const all_components = await Component_master_model.find();
             const isComponentExist = all_components.find(item => payload.component_name === item.component_name);
-            if(isComponentExist){
+            if (isComponentExist) {
                 return {
-                    type :"error" ,
-                    message : `Component ${payload.component_name} Exists under ${payload.parent_component}`,
-                    componentyData : null
+                    type: "error",
+                    message: `Component ${payload.component_name} Exists under ${payload.parent_component}`,
+                    componentyData: null
                 }
             }
             const newComponent = await Component_master_model.insertOne(payload);
@@ -39,6 +39,7 @@ export const component_master_service = async (payload: component_master_types) 
     }
 }
 
+//  fetchiong all the components and sending the data to frontend
 export const component_master_data_service = async () => {
     try {
         const db_Connection = await connection();
@@ -52,6 +53,19 @@ export const component_master_data_service = async () => {
                 }
             }
         }
+    } catch (error: any) {
+        return {
+            type: "error",
+            message: error.message,
+            componentData: null
+        }
+    }
+}
+
+// for deleting the component
+export const delete_component_service = async () => {
+    try {
+
     } catch (error: any) {
         return {
             type: "error",

@@ -26,4 +26,17 @@ const component_master_data_controller = async (req: Request, res: Response) => 
     }
 }
 
-export { component_master_controller ,component_master_data_controller}
+const delete_component_controller = async (req: Request, res: Response) => {
+    try {
+        const {id} = req.params;
+        console.log("payload" , id)
+        return true
+    } catch (error: any) {
+        return res.status(500).json({
+            type: "error",
+            message: error.message
+        })
+    }
+}
+
+export { component_master_controller, component_master_data_controller , delete_component_controller }
