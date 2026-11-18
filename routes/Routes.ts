@@ -2,7 +2,6 @@ import express from "express";
 import { component_master_controller, component_master_data_controller, delete_component_controller } from "../controllers/componentMasterController.ts";
 import { add_users_controller, get_users_controller } from "../controllers/usersController.ts";
 import { dashboard_details_controller } from "../controllers/dashboardController.ts";
-import { log_master_controller } from "../controllers/logMasterController.ts";
 
 const Routes = express.Router();
 
@@ -17,8 +16,5 @@ Routes.get("/dashboard_details", dashboard_details_controller);
 Routes.get("/get_users_data", get_users_controller);
 Routes.post("/create_user", add_users_controller);
 Routes.delete("/delete_component/:id", delete_component_controller);
-
-// log master routes
-Routes.get("/log_master_data" , log_master_controller)
 
 export default Routes;
