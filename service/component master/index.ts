@@ -63,9 +63,17 @@ export const component_master_data_service = async () => {
 }
 
 // for deleting the component
-export const delete_component_service = async () => {
+export const delete_component_service = async (id: string) => {
     try {
-
+        await connection();
+        const deleted_component = await Component_master_model.findByIdAndDelete(id);
+        return {
+            type: "Success",
+            message: "Component deleted successfully...!!!",
+            componentData:{
+                data: deleted_component
+            }
+        }
     } catch (error: any) {
         return {
             type: "error",
