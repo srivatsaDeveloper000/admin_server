@@ -7,7 +7,7 @@ export const add_user_service = async (payload: user_type) => {
         await connection();
 
         const all_users_data = await userModel.find();
-        const isUserExist = all_users_data.find(item => item.user_name);
+        const isUserExist = all_users_data.find(item => item.user_name === payload.user_name);
         if (isUserExist) {
             return {
                 type: "error",
