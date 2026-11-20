@@ -3,5 +3,16 @@ export type user_type = {
     email: string,
     password: string,
     user_role: string,
-    status: string
+    status: string,
+};
+
+export type single_user_type = user_type & {
+    type: "single"
 }
+
+export type bulk_user_type = {
+    type: "bulk",
+    users: user_type[]
+};
+
+export type AddUserPayload = single_user_type | bulk_user_type;
