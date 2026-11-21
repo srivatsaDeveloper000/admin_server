@@ -8,17 +8,18 @@ const schema = new mongoose.Schema({
     user_name: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        index : true
     },
     password: {
         type: String,
         required: true,
-        unique: true
     },
     email: {
         type: String,
         required: true,
-        unique: true
+        unique: true,
+        index : true
     },
     user_role: {
         type: String,
