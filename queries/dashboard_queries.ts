@@ -1,4 +1,5 @@
 import { connection } from "../lib/db_connection";
+import { userModel } from "../model/addUser.model";
 import { Component_master_model } from "../model/component_master.model";
 
 export const component_master_count = async () => {
@@ -23,5 +24,31 @@ export const component_master_count = async () => {
         return counts
     } catch (error: any) {
         throw error.message;
+    }
+};
+
+export const user_roles_count = async () => {
+    try {
+        await connection();
+        const counts = await userModel.aggregate([
+            {
+                $group: {
+                    count: {
+                        $sum: 1
+                    },
+                    _id: "$user_role",
+                },
+            },
+            {
+                $project: {
+                    _id: 0,
+                    user_role: "$_id",
+                    count: 1
+                }
+            }
+        ])
+        return counts;
+    } catch (error: any) {
+        console.log("Use roles count error : ", error.message)
     }
 }
