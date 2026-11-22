@@ -54,3 +54,44 @@ export const add_user_service = async (payload: AddUserPayload) => {
         };
     };
 };
+
+// for deleting the user
+export const delete_user_service = async (id : string) => {
+    try {
+        await connection();
+        await userModel.findByIdAndDelete(id);
+        return {
+            type :"Success",
+            message :"User deleted successfully...!!!",
+            componentData :null
+        }
+    }catch(error : unknown){
+        return {
+            type :"error",
+            message : error instanceof Error ? error.message :"Server error",
+            componentData :null
+        }
+    }
+}
+
+// for getting the users data
+export const get_users_service = async () => {
+    try {
+        await connection();
+        const users_data = await userModel.find();
+
+        return {
+            type: "Success",
+            message: "Users data retrieved successfully...!!!",
+            componentData: {
+                data: users_data
+            }
+        }
+    } catch (error: any) {
+        return {
+            type: "erorr",
+            message: error.message,
+            componentDat: null
+        }
+    }
+}
